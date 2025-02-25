@@ -1,0 +1,25 @@
+﻿@page "/"
+@using Talft.ViewModels
+@inject HomeViewModel ViewModel
+
+<PageTitle>Home</PageTitle>
+
+<h3>Users</h3>
+<ul>
+    @foreach (var user in ViewModel.Users)
+    {
+        <li>@user.Name - @user.Email</li>
+    }
+</ul>
+
+@code {
+    protected override void OnInitialized()
+    {
+        ViewModel.Refresh = Refresh;
+    }
+
+    public void Refresh()
+    {
+        InvokeAsync(StateHasChanged);
+    }
+}
