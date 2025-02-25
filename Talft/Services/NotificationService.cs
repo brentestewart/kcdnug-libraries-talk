@@ -36,7 +36,7 @@ public class NotificationService(ILogger<NotificationService> logger, IMediator 
         return new UserDto
         {
             Id = Guid.NewGuid(),
-            Name = name,
+            FullName = name,
             Email = email
         };
     }
